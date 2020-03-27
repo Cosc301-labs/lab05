@@ -1,0 +1,15 @@
+#lab5q1 Harman Sahota: 28337426 , Jai Natt : 
+
+import mysql.connector
+try:
+    cnx = mysql.connector.connect(user='rlawrenc', password='test', host='68.183.198.25', database='workson') 
+    cursor = cnx.cursor()    
+    query = ("SELECT * FROM dept INNER JOIN dept ON ")    
+    cursor.execute(query, ('EE', 50000))  
+    for (eno, ename, salary) in cursor:  
+        print(eno, ename, salary)  
+        cursor.close()
+except mysql.connector.Error as err:      
+    print(err)
+finally: 
+    cnx.close()
